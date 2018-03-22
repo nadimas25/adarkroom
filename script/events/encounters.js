@@ -20,17 +20,17 @@ Events.Encounters = [
 				attackDelay: 1,
 				health: 5,
 				loot: {
-					'fur': {
+					'clout': {
 						min: 1,
 						max: 3,
 						chance: 1
 					},
-					'meat': {
+					'leads': {
 						min: 1,
 						max: 3,
 						chance: 1
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 3,
 						chance: 0.8
@@ -62,12 +62,12 @@ Events.Encounters = [
 						max: 3,
 						chance: 0.8
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 2,
 						chance: 0.8
 					},
-					'leather': {
+					'confidence': {
 						min: 1,
 						max: 2,
 						chance: 0.5
@@ -94,17 +94,17 @@ Events.Encounters = [
 				attackDelay: 2,
 				health: 4,
 				loot: {
-					'scales': {
+					'intelligence': {
 						min: 1,
 						max: 3,
 						chance: 0.8
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 2,
 						chance: 0.5
 					},
-					'meat': {
+					'leads': {
 						min: 1,
 						max: 3,
 						chance: 0.8
@@ -123,8 +123,8 @@ Events.Encounters = [
 		scenes: {
 			'start': {
 				combat: true,
-				enemy: 'shivering man', 
-				enemyName: _('shivering man'), 
+				enemy: 'shivering man',
+				enemyName: _('shivering man'),
 				deathMessage: _('the shivering man is dead'),
 				chara: 'S',
 				damage: 5,
@@ -137,12 +137,12 @@ Events.Encounters = [
 						max: 1,
 						chance: 0.2
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 2,
 						chance: 0.8
 					},
-					'leather': {
+					'confidence': {
 						min: 1,
 						max: 1,
 						chance: 0.2
@@ -165,8 +165,8 @@ Events.Encounters = [
 		scenes: {
 			'start': {
 				combat: true,
-				enemy: 'man-eater', 
-				enemyName: _('man-eater'), 
+				enemy: 'man-eater',
+				enemyName: _('man-eater'),
 				deathMessage: _('the man-eater is dead'),
 				chara: 'E',
 				damage: 3,
@@ -174,17 +174,17 @@ Events.Encounters = [
 				attackDelay: 1,
 				health: 25,
 				loot: {
-					'fur': {
+					'clout': {
 						min: 5,
 						max: 10,
 						chance: 1
 					},
-					'meat': {
+					'leads': {
 						min: 5,
 						max: 10,
 						chance: 1
 					},
-					'teeth': {
+					'experience': {
 						min: 5,
 						max: 10,
 						chance: 0.8
@@ -202,8 +202,8 @@ Events.Encounters = [
 		scenes: {
 			'start': {
 				combat: true,
-				enemy: 'scavenger', 
-				enemyName: _('scavenger'), 
+				enemy: 'scavenger',
+				enemyName: _('scavenger'),
 				deathMessage: _('the scavenger is dead'),
 				chara: 'S',
 				damage: 4,
@@ -216,7 +216,7 @@ Events.Encounters = [
 						max: 10,
 						chance: 0.8
 					},
-					'leather': {
+					'confidence': {
 						min: 5,
 						max: 10,
 						chance: 0.8
@@ -244,8 +244,8 @@ Events.Encounters = [
 		scenes: {
 			'start': {
 				combat: true,
-				enemy: 'lizard', 
-				enemyName: _('lizard'), 
+				enemy: 'lizard',
+				enemyName: _('lizard'),
 				deathMessage: _('the lizard is dead'),
 				chara: 'L',
 				damage: 5,
@@ -253,17 +253,17 @@ Events.Encounters = [
 				attackDelay: 2,
 				health: 20,
 				loot: {
-					'scales': {
+					'intelligence': {
 						min: 5,
 						max: 10,
 						chance: 0.8
 					},
-					'teeth': {
+					'experience': {
 						min: 5,
 						max: 10,
 						chance: 0.5
 					},
-					'meat': {
+					'leads': {
 						min: 5,
 						max: 10,
 						chance: 0.8
@@ -282,8 +282,8 @@ Events.Encounters = [
 		scenes: {
 			'start': {
 				combat: true,
-				enemy: 'feral terror', 
-				enemyName: _('feral terror'), 
+				enemy: 'feral terror',
+				enemyName: _('feral terror'),
 				deathMessage: _('the feral terror is dead'),
 				chara: 'F',
 				damage: 6,
@@ -291,17 +291,17 @@ Events.Encounters = [
 				attackDelay: 1,
 				health: 45,
 				loot: {
-					'fur': {
+					'clout': {
 						min: 5,
 						max: 10,
 						chance: 1
 					},
-					'meat': {
+					'leads': {
 						min: 5,
 						max: 10,
 						chance: 1
 					},
-					'teeth': {
+					'experience': {
 						min: 5,
 						max: 10,
 						chance: 0.8
@@ -319,8 +319,8 @@ Events.Encounters = [
 		scenes: {
 			'start': {
 				combat: true,
-				enemy: 'soldier', 
-				enemyName: _('soldier'), 
+				enemy: 'soldier',
+				enemyName: _('soldier'),
 				deathMessage: _('the soldier is dead'),
 				ranged: true,
 				chara: 'D',
@@ -362,8 +362,8 @@ Events.Encounters = [
 		scenes: {
 			'start': {
 				combat: true,
-				enemy: 'sniper', 
-				enemyName: _('sniper'), 
+				enemy: 'sniper',
+				enemyName: _('sniper'),
 				deathMessage: _('the sniper is dead'),
 				chara: 'S',
 				damage: 15,

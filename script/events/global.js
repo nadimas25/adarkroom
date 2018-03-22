@@ -2,40 +2,41 @@
  * Events that can occur when any module is active (Except World. It's special.)
  **/
 Events.Global = [
-	{ /* The Thief */
-		title: _('The Thief'),
+	{ /* Plagiarist */
+		title: _('The Plagiarist'),
 		isAvailable: function() {
 			return (Engine.activeModule == Room || Engine.activeModule == Outside) && $SM.get('game.thieves') == 1;
 		},
 		scenes: {
 			'start': {
 				text: [
-					_('the villagers haul a filthy man out of the store room.'),
-					_("say his folk have been skimming the supplies."),
-					_('say he should be strung up as an example.')
+					_('people show you images of another artist\'s artwork.'),
+					_("they say one of your own has been ripping this artist off."),
+					_('say he shouldn\'t be invited to exhibit anymore.')
 				],
-				notification: _('a thief is caught'),
+				notification: _('a plagiarist is caught'),
 				blink: true,
 				buttons: {
-					'kill': {
-						text: _('hang him'),
-						nextScene: {1: 'hang'}
+					'exile': {
+						text: _('exhile him'),
+						nextScene: {1: 'exhile'}
 					},
-					'spare': {
-						text: _('spare him'),
-						nextScene: {1: 'spare'}
+					'forgive': {
+						text: _('forgive him'),
+						nextScene: {1: 'forgive'}
 					}
 				}
 			},
-			'hang': {
+			'exhile': {
 				text: [
-					_('the villagers hang the thief high in front of the store room.'),
-					_('the point is made. in the next few days, the missing supplies are returned.')
+					_('everyone deletes him from their contacts and social media. the point is made'),
+					_('in the next few days, embarrassed and ashamed, he deactivates his Instagram.')
 				],
 				onLoad: function() {
 					$SM.set('game.thieves', 2);
 					$SM.remove('income.thieves');
-					$SM.addM('stores', $SM.get('game.stolen'));
+					$SM.addPerk('stealthy');
+
 				},
 				buttons: {
 					'leave': {
@@ -44,15 +45,15 @@ Events.Global = [
 					}
 				}
 			},
-			'spare': {
+			'forgive': {
 				text: [
-					_("the man says he's grateful. says he won't come around any more."),
-					_("shares what he knows about sneaking before he goes.")
+					_("the artist appreciates your mercy. promises to make you a bunch of money"),
+					_("turns out he is a liar, should never have trusted him. he is never heard from again")
 				],
 				onLoad: function() {
 					$SM.set('game.thieves', 2);
 					$SM.remove('income.thieves');
-					$SM.addPerk('stealthy');
+					$SM.addM('stores', $SM.get('game.stolen'));
 				},
 				buttons: {
 					'leave': {

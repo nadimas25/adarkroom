@@ -1,30 +1,30 @@
-(function(){
+Studio(function(){
 	//only used for poedit to find translatable strings
-	var keywords = [ 
+	var keywords = [
 		_('saved.'),
-		_('wood'),
-		_('builder'),
-		_('teeth'),
-		_('meat'),
-		_('fur'),
+		_('artwork'),
+		_('curator'),
+		_('experience'),
+		_('leads'),
+		_('clout'),
 		_('alien alloy'),
 		_('bullets'),
 		_('charm'),
-		_('leather'),
+		_('confidence'),
 		_('iron'),
 		_('steel'),
 		_('coal'),
 		_('sulphur'),
 		_('energy cell'),
-		_('torch'),
+		_('guest list +1'),
 		_('medicine'),
-		_('hunter'),
-		_('trapper'),
-		_('tanner'),
+		_('influencer'),
+		_('inter'),
+		_('marketer'),
 		_('grenade'),
 		_('bolas'),
 		_('bayonet'),
-		_('charcutier'),
+		_('salesperson'),
 		_('iron miner'),
 		_('iron mine'),
 		_('coal miner'),
@@ -34,27 +34,27 @@
 		_('armourer'),
 		_('steelworker'),
 		_('bait'),
-		_('cured meat'),
-		_('scales'),
+		_('money'),
+		_('intelligence'),
 		_('compass'),
 		_('laser rifle'),
-		_('gatherer'),
+		_('artist'),
 		_('cloth'),
-		_('scales'),
-		_('cured meat'),
+		_('intelligence'),
+		_('money'),
 		_('thieves'),
-		_('not enough fur'),
-		_('not enough wood'),
+		_('not enough clout'),
+		_('not enough artwork'),
 		_('not enough coal'),
 		_('not enough iron'),
 		_('not enough steel'),
 		_('not enough sulphur'),
 		_('baited trap'),
-		_('not enough scales'),
+		_('not enough intellifence'),
 		_('not enough cloth'),
-		_('not enough teeth'),
-		_('not enough leather'),
-		_('not enough meat'),
+		_('not enough experience'),
+		_('not enough confidence'),
+		_('not enough leads'),
 		_('the compass points east'),
 		_('the compass points west'),
 		_('the compass points north'),
@@ -63,22 +63,22 @@
 		_('the compass points northwest'),
 		_('the compass points southeast'),
 		_('the compass points southwest')
-	]; 
+	];
 
 	delete keywords;
-	
+
 	//translate text in css by overriding attributes
 	$("<style>").text('\
-		div#stores:before{ content: \''+ _("stores") + '\'}\
+		div#stores:before{ content: \''+ _("resources") + '\'}\
 		div#weapons:before{ content: \''+ _("weapons") + '\'}\
-		div#buildBtns:before{ content: \''+ _("build:") + '\'}\
+		div#buildBtns:before{ content: \''+ _("open:") + '\'}\
 		div#craftBtns:before{ content: \''+ _("craft:") + '\'}\
 		div#buyBtns:before{ content: \''+ _("buy:") + '\'}\
 		div#outfitting:before{ content: \''+ _("supplies:") + '\'}\
 		div#perks:before{ content: \''+ _("perks:") + '\'}\
 		div#lootButtons:before { content: \''+ _("take:") + '\'}\
 		div#dropMenu:before { content: \''+ _("drop:") + '\'}\
-		div#village.noHuts:before { content: \'' + _("forest") + '\'}\
+		div#village.noHuts:before { content: \'' + _("loft") + '\'}\
 		div#village:before { content: \'' + _("village") + '\'}\
 	').appendTo($('head'));
 })();

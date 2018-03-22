@@ -1,15 +1,15 @@
 (function() {
 	var Engine = window.Engine = {
-		
+
 		SITE_URL: encodeURIComponent("http://adarkroom.doublespeakgames.com"),
 		VERSION: 1.3,
 		MAX_STORE: 99999999999999,
 		SAVE_DISPLAY: 30 * 1000,
 		GAME_OVER: false,
-		
+
 		//object event types
 		topics: {},
-			
+
 		Perks: {
 			'boxer': {
 				name: _('boxer'),
@@ -53,10 +53,10 @@
 				desc: _('land blows more often'),
 				notify: _('learned to predict their movement')
 			},
-			'scout': {
+			'networker': {
 				name: _('scout'),
-				desc: _('see farther'),
-				notify: _('learned to look ahead')
+				desc: _('see more cool things'),
+				notify: _('learned to find where to be')
 			},
 			'stealthy': {
 				name: _('stealthy'),
@@ -69,7 +69,7 @@
 				notify: _('learned to make the most of food')
 			}
 		},
-		
+
 		options: {
 			state: null,
 			debug: false,
@@ -77,7 +77,7 @@
 			dropbox: false,
 			doubleTime: false
 		},
-			
+
 		init: function(options) {
 			this.options = $.extend(
 				this.options,
@@ -85,31 +85,31 @@
 			);
 			this._debug = this.options.debug;
 			this._log = this.options.log;
-			
+
 			// Check for HTML5 support
 			if(!Engine.browserValid()) {
 				window.location = 'browserWarning.html';
 			}
-			
+
 			// Check for mobile
 			if(Engine.isMobile()) {
 				window.location = 'mobileWarning.html';
 			}
-	
+
 			Engine.disableSelection();
-			
+
 			if(this.options.state != null) {
 				window.State = this.options.state;
 			} else {
 				Engine.loadGame();
 			}
-			
+
 			$('<div>').attr('id', 'locationSlider').appendTo('#main');
 
 			var menu = $('<div>')
 				.addClass('menu')
 				.appendTo('body');
-	
+
 			if(typeof langs != 'undefined'){
 				var customSelect = $('<span>')
 					.addClass('customSelect')
@@ -123,7 +123,7 @@
 				$('<li>')
 					.text("language.")
 					.appendTo(optionsList);
-				
+
 				$.each(langs, function(name,display){
 					$('<li>')
 						.text(display)
@@ -156,7 +156,7 @@
 				.text(_('restart.'))
 				.click(Engine.confirmDelete)
 				.appendTo(menu);
-			
+
 			$('<span>')
 				.addClass('menuBtn')
 				.text(_('share.'))
@@ -178,7 +178,7 @@
 					.click(Engine.Dropbox.startDropbox)
 					.appendTo(menu);
 			}
-			
+
 			$('<span>')
 				.addClass('menuBtn')
 				.text(_('app store.'))
@@ -190,7 +190,7 @@
 				.text(_('github.'))
 				.click(function() { window.open('https://github.com/Continuities/adarkroom'); })
 				.appendTo(menu);
-			
+
 			// Register keypress handlers
 			$('body').off('keydown').keydown(Engine.keyDown);
 			$('body').off('keyup').keyup(Engine.keyUp);
@@ -201,7 +201,7 @@
 			swipeElement.on('swiperight', Engine.swipeRight);
 			swipeElement.on('swipeup', Engine.swipeUp);
 			swipeElement.on('swipedown', Engine.swipeDown);
-		
+
 			// subscribe to stateUpdates
 			$.Dispatch('stateUpdate').subscribe(Engine.handleStateUpdates);
 
@@ -209,8 +209,8 @@
 			Notifications.init();
 			Events.init();
 			Room.init();
-			
-			if(typeof $SM.get('stores.wood') != 'undefined') {
+
+			if(typeof $SM.get('stores.artwork') != 'undefined') {
 				Outside.init();
 			}
 			if($SM.get('stores.compass', true) > 0) {
@@ -219,20 +219,20 @@
 			if($SM.get('features.location.spaceShip')) {
 				Ship.init();
 			}
-			
+
 			Engine.saveLanguage();
 			Engine.travelTo(Room);
-	
+
 		},
-		
+
 		browserValid: function() {
 			return ( location.search.indexOf( 'ignorebrowser=true' ) >= 0 || ( typeof Storage != 'undefined' && !oldIE ) );
 		},
-		
+
 		isMobile: function() {
 			return ( location.search.indexOf( 'ignorebrowser=true' ) < 0 && /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test( navigator.userAgent ) );
 		},
-		
+
 		saveGame: function() {
 			if(typeof Storage != 'undefined' && localStorage) {
 				if(Engine._saveTimer != null) {
@@ -245,7 +245,7 @@
 				localStorage.gameState = JSON.stringify(State);
 			}
 		},
-		
+
 		loadGame: function() {
 			try {
 				var savedState = JSON.parse(localStorage.gameState);
@@ -260,7 +260,7 @@
 				Engine.event('progress', 'new game');
 			}
 		},
-		
+
 		exportImport: function() {
 			Events.startEvent({
 				title: _('Export / Import'),
@@ -370,7 +370,7 @@
 				ga('send', 'event', cat, act);
 			}
 		},
-	
+
 		confirmDelete: function() {
 			Events.startEvent({
 				title: _('Restart?'),
@@ -392,7 +392,7 @@
 				}
 			});
 		},
-	
+
 		deleteSave: function(noReload) {
 			if(typeof Storage != 'undefined' && localStorage) {
 				var prestige = Prestige.get();
@@ -404,7 +404,7 @@
 				location.reload();
 			}
 		},
-	
+
 		share: function() {
 			Events.startEvent({
 				title: _('Share'),
@@ -470,7 +470,7 @@
 			}
 			return false;
 		},
-	
+
 		turnLightsOff: function() {
 			var darkCss = Engine.findStylesheet('darkenLights');
 			if (darkCss == null) {
@@ -485,7 +485,7 @@
 				$('.lightsOff').text(_('lights off.'));
 			}
 		},
-	
+
 		// Gets a guid
 		getGuid: function() {
 			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -493,9 +493,9 @@
 				return v.toString(16);
 			});
 		},
-	
+
 		activeModule: null,
-	
+
 		travelTo: function(module) {
 			if(Engine.activeModule != module) {
 				var currentIndex = Engine.activeModule ? $('.location').index(Engine.activeModule.panel) : 1;
@@ -508,11 +508,11 @@
 				var diff = Math.abs(panelIndex - currentIndex);
 				slider.animate({left: -(panelIndex * 700) + 'px'}, 300 * diff);
 
-				if($SM.get('stores.wood') !== undefined) {
+				if($SM.get('stores.artwork') !== undefined) {
 				// FIXME Why does this work if there's an animation queue...?
 					stores.animate({right: -(panelIndex * 700) + 'px'}, 300 * diff);
 				}
-			
+
 				Engine.activeModule = module;
 
 				module.onArrival(diff);
@@ -530,7 +530,7 @@
 				}
 
 				Notifications.printQueue(module);
-			
+
 			}
 		},
 
@@ -557,33 +557,33 @@
 						top: top_container.height() + 26 + 'px'
 					},
 					{
-						queue: false, 
+						queue: false,
 						duration: 300 * transition_diff
 				});
 			}
 		},
-	
+
 		log: function(msg) {
 			if(this._log) {
 				console.log(msg);
 			}
 		},
-	
+
 		updateSlider: function() {
 			var slider = $('#locationSlider');
 			slider.width((slider.children().length * 700) + 'px');
 		},
-	
+
 		updateOuterSlider: function() {
 			var slider = $('#outerSlider');
 			slider.width((slider.children().length * 700) + 'px');
 		},
-	
+
 		getIncomeMsg: function(num, delay) {
 			return _("{0} per {1}s", (num > 0 ? "+" : "") + num, delay);
 			//return (num > 0 ? "+" : "") + num + " per " + delay + "s";
 		},
-	
+
 		keyDown: function(e) {
 			e = e || window.event;
 			if(!Engine.keyPressed && !Engine.keyLock) {
@@ -594,7 +594,7 @@
 			}
 			return jQuery.inArray(e.keycode, [37,38,39,40]) < 0;
 		},
-	
+
 		keyUp: function(e) {
 			Engine.pressed = false;
 			if(Engine.activeModule.keyUp) {
@@ -645,7 +645,7 @@
 						break;
 				}
 			}
-	
+
 			return false;
 		},
 
@@ -682,15 +682,15 @@
 			document.onselectstart = eventPassthrough;
 			document.onmousedown = eventPassthrough;
 		},
-	
+
 		autoSelect: function(selector) {
 			$(selector).focus().select();
 		},
-	
+
 		handleStateUpdates: function(e){
-		
+
 		},
-	
+
 		switchLanguage: function(dom){
 			var lang = $(dom).data("language");
 			if(document.location.href.search(/[\?\&]lang=[a-z_]+/) != -1){
@@ -699,9 +699,9 @@
 				document.location.href = document.location.href + ( (document.location.href.search(/\?/) != -1 )?"&":"?") + "lang="+lang;
 			}
 		},
-	
+
 		saveLanguage: function(){
-			var lang = decodeURIComponent((new RegExp('[?|&]lang=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;	
+			var lang = decodeURIComponent((new RegExp('[?|&]lang=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 			if(lang && typeof Storage != 'undefined' && localStorage) {
 				localStorage.lang = lang;
 			}
@@ -757,7 +757,7 @@ function scrollByX(elem, x){
 }
 
 
-//create jQuery Callbacks() to handle object events 
+//create jQuery Callbacks() to handle object events
 $.Dispatch = function( id ) {
 	var callbacks, topic = id && Engine.topics[ id ];
 	if ( !topic ) {

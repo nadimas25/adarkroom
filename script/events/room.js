@@ -1,34 +1,34 @@
-/**
+Artwork/**
  * Events that can occur when the Room module is active
  **/
 Events.Room = [
-	{ /* The Nomad  --  Merchant */
-		title: _('The Nomad'),
+	{ /* The Sales Rep  --  Merchant */
+		title: _('The Sales Rep'),
 		isAvailable: function() {
-			return Engine.activeModule == Room && $SM.get('stores.fur', true) > 0;
+			return Engine.activeModule == Room && $SM.get('stores.clout', true) > 0;
 		},
 		scenes: {
 			'start': {
 				text: [
-					_('a nomad shuffles into view, laden with makeshift bags bound with rough twine.'),
-					_("won't say from where he came, but it's clear that he's not staying.")
+					_('a sales rep appears, briefcase in hand and talking on a blutooth headset.'),
+					_("says he has materials and resources that can help, for the right price of course")
 				],
-				notification: _('a nomad arrives, looking to trade'),
+				notification: _('a sales rep arrives, looking to sell'),
 				blink: true,
 				buttons: {
 					'buyScales': {
-						text: _('buy scales'),
-						cost: { 'fur': 100 },
-						reward: { 'scales': 1 }
+						text: _('buy intelligence'),
+						cost: { 'clout': 100 },
+						reward: { 'intelligence': 1 }
 					},
 					'buyTeeth': {
-						text: _('buy teeth'),
-						cost: { 'fur': 200 },
-						reward: { 'teeth': 1 }
+						text: _('buy experience'),
+						cost: { 'clout': 200 },
+						reward: { 'experience': 1 }
 					},
 					'buyBait': {
 						text: _('buy bait'),
-						cost: { 'fur': 5 },
+						cost: { 'clout': 5 },
 						reward: { 'bait': 1 },
 						notification: _('traps are more effective with bait.')
 					},
@@ -41,7 +41,7 @@ Events.Room = [
 						reward: { 'compass': 1 },
 						notification: _('the old compass is dented and dusty, but it looks to work.'),
 						onChoose: Path.openPath
-					}, 
+					},
 					'goodbye': {
 						text: _('say goodbye'),
 						nextScene: 'end'
@@ -49,19 +49,19 @@ Events.Room = [
 				}
 			}
 		}
-	}, 
-	{ /* Noises Outside  --  gain wood/fur */
+	},
+	{ /* Noises Outside  --  gain artworks/clout */
 		title: _('Noises'),
 		isAvailable: function() {
-			return Engine.activeModule == Room && $SM.get('stores.wood');
+			return Engine.activeModule == Room && $SM.get('stores.artwork');
 		},
 		scenes: {
 			'start': {
 				text: [
-					_('through the walls, shuffling noises can be heard.'),
+					_('outside the gallery, shuffling noises can be heard.'),
 					_("can't tell what they're up to.")
 				],
-				notification: _('strange noises can be heard through the walls'),
+				notification: _('strange noises can be heard outside the gallery'),
 				blink: true,
 				buttons: {
 					'investigate': {
@@ -87,10 +87,10 @@ Events.Room = [
 				}
 			},
 			'stuff': {
-				reward: { wood: 100, fur: 10 },
+				reward: { artwork: 100, fur: 10 },
 				text: [
-					_('a bundle of sticks lies just beyond the threshold, wrapped in coarse furs.'),
-					_('the night is silent.')
+					_('a bundle of artworks lies just beyond the threshold, the word must be spreading.'),
+					_('some poor artists must have left these here. must be hoping for some exposure')
 				],
 				buttons: {
 					'backinside': {
@@ -101,15 +101,15 @@ Events.Room = [
 			}
 		}
 	},
-	{ /* Noises Inside  --  trade wood for better good */
+	{ /* Noises Inside  --  trade artworks for better good */
 		title: _('Noises'),
 		isAvailable: function() {
-			return Engine.activeModule == Room && $SM.get('stores.wood');
+			return Engine.activeModule == Room && $SM.get('stores.artwork');
 		},
 		scenes: {
 			start: {
 				text: [
-					_('scratching noises can be heard from the store room.'),
+					_('scratching noises can be heard from the storage room.'),
 					_('something\'s in there.')
 				],
 				notification: _('something\'s in the store room'),
@@ -117,7 +117,7 @@ Events.Room = [
 				buttons: {
 					'investigate': {
 						text: _('investigate'),
-						nextScene: { 0.5: 'scales', 0.8: 'teeth', 1: 'cloth' }
+						nextScene: { 0.8: 'experience', 1: 'cloth' }
 					},
 					'ignore': {
 						text: _('ignore them'),
@@ -125,38 +125,18 @@ Events.Room = [
 					}
 				}
 			},
-			scales: {
+			experience: {
 				text: [
-					_('some wood is missing.'),
-					_('the ground is littered with small scales')
+					_('some artworks are missing.'),
+					_('you\'ve learned a lesson, security is important to prevent theft')
 				],
 				onLoad: function() {
-					var numWood = $SM.get('stores.wood', true);
-					numWood = Math.floor(numWood * 0.1);
-					if(numWood === 0) numWood = 1;
-					var numScales = Math.floor(numWood / 5);
-					if(numScales === 0) numScales = 1;
-					$SM.addM('stores', {'wood': -numWood, 'scales': numScales});
-				},
-				buttons: {
-					'leave': {
-						text: _('leave'),
-						nextScene: 'end'
-					}
-				}
-			},
-			teeth: {
-				text: [
-					_('some wood is missing.'),
-					_('the ground is littered with small teeth')
-				],
-				onLoad: function() {
-					var numWood = $SM.get('stores.wood', true);
-					numWood = Math.floor(numWood * 0.1);
-					if(numWood === 0) numWood = 1;
-					var numTeeth = Math.floor(numWood / 5);
+					var numArtwork = $SM.get('stores.artwork', true);
+					numArtwork = Math.floor(numArtwork * 0.1);
+					if(numArtwork === 0) numArtwork = 1;
+					var numTeeth = Math.floor(numArtwork / 5);
 					if(numTeeth === 0) numTeeth = 1;
-					$SM.addM('stores', {'wood': -numWood, 'teeth': numTeeth});
+					$SM.addM('stores', {'artwork': -numArtwork, 'experience': numTeeth});
 				},
 				buttons: {
 					'leave': {
@@ -167,16 +147,16 @@ Events.Room = [
 			},
 			cloth: {
 				text: [
-					_('some wood is missing.'),
+					_('some artworks are missing.'),
 					_('the ground is littered with scraps of cloth')
 				],
 				onLoad: function() {
-					var numWood = $SM.get('stores.wood', true);
-					numWood = Math.floor(numWood * 0.1);
-					if(numWood === 0) numWood = 1;
-					var numCloth = Math.floor(numWood / 5);
+					var numArtwork = $SM.get('stores.artwork', true);
+					numArtwork = Math.floor(numArtwork * 0.1);
+					if(numArtwork === 0) numArtwork = 1;
+					var numCloth = Math.floor(numArtwork / 5);
 					if(numCloth === 0) numCloth = 1;
-					$SM.addM('stores', {'wood': -numWood, 'cloth': numCloth});
+					$SM.addM('stores', {'artwork': -numArtwork, 'cloth': numCloth});
 				},
 				buttons: {
 					'leave': {
@@ -187,41 +167,41 @@ Events.Room = [
 			}
 		}
 	},
-	{ /* The Beggar  --  trade fur for better good */
-		title: _('The Beggar'),
+	{ /* The Art Collective  --  trade clout for better good */
+		title: _('The Art Collective'),
 		isAvailable: function() {
 			return Engine.activeModule == Room && $SM.get('stores.fur');
 		},
 		scenes: {
 			start: {
 				text: [
-					_('a beggar arrives.'),
-					_('asks for any spare furs to keep him warm at night.')
+					_('an art collective arrives.'),
+					_('they ask for any spare clout to help with their operation.')
 				],
-				notification: _('a beggar arrives'),
+				notification: _('an art collective arrives'),
 				blink: true,
 				buttons: {
-					'50furs': {
+					'50clout': {
 						text: _('give 50'),
 						cost: {fur: 50},
-						nextScene: { 0.5: 'scales', 0.8: 'teeth', 1: 'cloth' }
+						nextScene: { 0.5: 'intelligence', 0.8: 'experience', 1: 'cloth' }
 					},
-					'100furs': {
+					'100clout': {
 						text: _('give 100'),
 						cost: {fur: 100},
-						nextScene: { 0.5: 'teeth', 0.8: 'scales', 1: 'cloth' }
+						nextScene: { 0.5: 'experience', 0.8: 'intelligence', 1: 'cloth' }
 					},
 					'deny': {
-						text: _('turn him away'),
+						text: _('turn them away'),
 						nextScene: 'end'
 					}
 				}
 			},
-			scales: {
-				reward: { scales: 20 },
+			intelligence: {
+				reward: { intelligence: 20 },
 				text: [
-					_('the beggar expresses his thanks.'),
-					_('leaves a pile of small scales behind.')
+					_('the art collective expresses their thanks.'),
+					_('leave you with some knowledge they\'ve gained.')
 				],
 				buttons: {
 					'leave': {
@@ -230,11 +210,11 @@ Events.Room = [
 					}
 				}
 			},
-			teeth: {
-				reward: { teeth: 20 },
+			experience: {
+				reward: { experience: 20 },
 				text: [
-					_('the beggar expresses his thanks.'),
-					_('leaves a pile of small teeth behind.')
+					_('the art collective expresses their thanks.'),
+					_('another meeting under you belt.')
 				],
 				buttons: {
 					'leave': {
@@ -246,7 +226,7 @@ Events.Room = [
 			cloth: {
 				reward: { cloth: 20 },
 				text: [
-					_('the beggar expresses his thanks.'),
+					_('the art collective expresses their thanks.'),
 					_('leaves some scraps of cloth behind.')
 				],
 				buttons: {
@@ -258,101 +238,30 @@ Events.Room = [
 			}
 		}
 	},
-	
-	{ /* Mysterious Wanderer  --  wood gambling */
-		title: _('The Mysterious Wanderer'),
+
+	{ /* Art Agent --  artwork gambling */
+		title: _('The Art Agent'),
 		isAvailable: function() {
-			return Engine.activeModule == Room && $SM.get('stores.wood');
+			return Engine.activeModule == Room && $SM.get('stores.artwork');
 		},
 		scenes: {
 			start: {
 				text: [
-					_('a wanderer arrives with an empty cart. says if he leaves with wood, he\'ll be back with more.'),
-					_("builder's not sure he's to be trusted.")
+					_('an art agent emails with a proposition. says if you give her artworks, she\'ll be back with more work'),
+					_("curator's not sure she's to be trusted.")
 				],
-				notification: _('a mysterious wanderer arrives'),
+				notification: _('an art agent emails'),
 				blink: true,
 				buttons: {
-					'100wood': {
+					'100artwork': {
 						text: _('give 100'),
-						cost: {wood: 100},
-						nextScene: { 1: '100wood'}
+						cost: {artwork: 100},
+						nextScene: { 1: '100artwork'}
 					},
-					'500wood': {
+					'500artwork': {
 						text: _('give 500'),
-						cost: {wood: 500},
-						nextScene: { 1: '500wood' }
-					},
-					'deny': {
-						text: _('turn him away'),
-						nextScene: 'end'
-					}
-				}
-			},
-			'100wood': {
-				text: [
-					_('the wanderer leaves, cart loaded with wood')
-				],
-				onLoad: function() {
-					if(Math.random() < 0.5) {
-						Engine.setTimeout(function() {
-							$SM.add('stores.wood', 300);
-							Notifications.notify(Room, _('the mysterious wanderer returns, cart piled high with wood.'));
-						}, 60 * 1000);
-					}
-				},
-				buttons: {
-					'leave': {
-						text: _('say goodbye'),
-						nextScene: 'end'
-					}
-				}
-			},
-			'500wood': {
-				text: [
-					_('the wanderer leaves, cart loaded with wood')
-				],
-				onLoad: function() {
-					if(Math.random() < 0.3) {
-						Engine.setTimeout(function() {
-							$SM.add('stores.wood', 1500);
-							Notifications.notify(Room, _('the mysterious wanderer returns, cart piled high with wood.'));
-						}, 60 * 1000);
-					}
-				},
-				buttons: {
-					'leave': {
-						text: _('say goodbye'),
-						nextScene: 'end'
-					}
-				}
-			}
-		}
-	},
-	
-	{ /* Mysterious Wanderer  --  fur gambling */
-		title: _('The Mysterious Wanderer'),
-		isAvailable: function() {
-			return Engine.activeModule == Room && $SM.get('stores.fur');
-		},
-		scenes: {
-			start: {
-				text: [
-					_('a wanderer arrives with an empty cart. says if she leaves with furs, she\'ll be back with more.'),
-					_("builder's not sure she's to be trusted.")
-				],
-				notification: _('a mysterious wanderer arrives'),
-				blink: true,
-				buttons: {
-					'100fur': {
-						text: _('give 100'),
-						cost: {fur: 100},
-						nextScene: { 1: '100fur'}
-					},
-					'500fur': {
-						text: _('give 500'),
-						cost: {fur: 500},
-						nextScene: { 1: '500fur' }
+						cost: {artwork: 500},
+						nextScene: { 1: '500artwork' }
 					},
 					'deny': {
 						text: _('turn her away'),
@@ -360,70 +269,141 @@ Events.Room = [
 					}
 				}
 			},
-			'100fur': {
+			'100artwork': {
 				text: [
-					_('the wanderer leaves, cart loaded with furs')
+					_('the agent doesn\'t say anything, she unlocks her blackberry and walk away')
 				],
 				onLoad: function() {
 					if(Math.random() < 0.5) {
 						Engine.setTimeout(function() {
-							$SM.add('stores.fur', 300);
-							Notifications.notify(Room, _('the mysterious wanderer returns, cart piled high with furs.'));
+							$SM.add('stores.artwork', 300);
+							Notifications.notify(Room, _('the agent emails back, she\'s secured many artworks for the gallery.'));
 						}, 60 * 1000);
 					}
 				},
 				buttons: {
 					'leave': {
-						text: _('say goodbye'),
+						text: _('email thanks'),
 						nextScene: 'end'
 					}
 				}
 			},
-			'500fur': {
+			'500artwork': {
 				text: [
-					_('the wanderer leaves, cart loaded with furs')
+					_('the agent doesn\'t say anything, she unlocks her blackberry and walk away ')
 				],
 				onLoad: function() {
 					if(Math.random() < 0.3) {
 						Engine.setTimeout(function() {
-							$SM.add('stores.fur', 1500);
-							Notifications.notify(Room, _('the mysterious wanderer returns, cart piled high with furs.'));
+							$SM.add('stores.artwork', 1500);
+							Notifications.notify(Room, _('the agent emails back, she\'s secured many artworks for the gallery.'));
 						}, 60 * 1000);
 					}
 				},
 				buttons: {
 					'leave': {
-						text: _('say goodbye'),
+						text: _('email thanks'),
 						nextScene: 'end'
 					}
 				}
 			}
 		}
 	},
-	
-	{ /* The Scout  --  Map Merchant */
-		title: _('The Scout'),
+
+	{ /* Marketing Agency  --  clout gambling */
+		title: _('The Marketing Agency'),
+		isAvailable: function() {
+			return Engine.activeModule == Room && $SM.get('stores.fur');
+		},
+		scenes: {
+			start: {
+				text: [
+					_('a marketing agency emails with a proposition. says if they can use some of your hard earned clout, they\'ll be back with more'),
+					_("builder's not sure about the brand association.")
+				],
+				notification: _('a marketing agency emails'),
+				blink: true,
+				buttons: {
+					'100clout': {
+						text: _('give 100'),
+						cost: {fur: 100},
+						nextScene: { 1: '100clout'}
+					},
+					'500clout': {
+						text: _('give 500'),
+						cost: {fur: 500},
+						nextScene: { 1: '500clout' }
+					},
+					'deny': {
+						text: _('turn them away'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'100clout': {
+				text: [
+					_('the agency says thanks, puts your logo on some promotional materials')
+				],
+				onLoad: function() {
+					if(Math.random() < 0.5) {
+						Engine.setTimeout(function() {
+							$SM.add('stores.fur', 300);
+							Notifications.notify(Room, _('the marketing agency\'s campaign pays dividends, clout increases.'));
+						}, 60 * 1000);
+					}
+				},
+				buttons: {
+					'leave': {
+						text: _('email thanks'),
+						nextScene: 'end'
+					}
+				}
+			},
+			'500clout': {
+				text: [
+					_('the agency says thanks, puts your logo on some promotional materials')
+				],
+				onLoad: function() {
+					if(Math.random() < 0.3) {
+						Engine.setTimeout(function() {
+							$SM.add('stores.fur', 1500);
+							Notifications.notify(Room, _('the marketing agency\'s campaign pays dividends, clout increases.'));
+						}, 60 * 1000);
+					}
+				},
+				buttons: {
+					'leave': {
+						text: _('email thanks'),
+						nextScene: 'end'
+					}
+				}
+			}
+		}
+	},
+
+	{ /* The Social Climber --  Map Unlocker */
+		title: _('The Social Climber'),
 		isAvailable: function() {
 			return Engine.activeModule == Room && $SM.get('features.location.world');
 		},
 		scenes: {
 			'start': {
 				text: [
-					_("the scout says she's been all over."),
-					_("willing to talk about it, for a price.")
+					_("the social climber says she knows every place in the city."),
+					_("willing to share her contacts with you, for a price.")
 				],
-				notification: _('a scout stops for the night'),
+				notification: _('a social climber swings by for an exhibition'),
 				blink: true,
 				buttons: {
 					'buyMap': {
-						text: _('buy map'),
-						cost: { 'fur': 200, 'scales': 10 },
-						notification: _('the map uncovers a bit of the world'),
+						text: _('get contacts'),
+						cost: { 'clout': 200, 'intelligence': 10 },
+						notification: _('now you know where to find some of the coolest spots in town'),
 						onChoose: World.applyMap
 					},
 					'learn': {
-						text: _('learn scouting'),
-						cost: { 'fur': 1000, 'scales': 50, 'teeth': 20 },
+						text: _('learn networking'),
+						cost: { 'clout': 1000, 'intelligence': 50, 'experience': 20 },
 						available: function() {
 							return !$SM.hasPerk('scout');
 						},
@@ -439,39 +419,39 @@ Events.Room = [
 			}
 		}
 	},
-	
-	{ /* The Wandering Master */
-		title: _('The Master'),
+
+	{ /* The Wise Mentor */
+		title: _('The Mentor'),
 		isAvailable: function() {
 			return Engine.activeModule == Room && $SM.get('features.location.world');
 		},
 		scenes: {
 			'start': {
 				text: [
-					_('an old wanderer arrives.'),
-					_('he smiles warmly and asks for lodgings for the night.')
+					_('a wise mentor arrives.'),
+					_('she smiles warmly and asks if you\'d like some consultation.')
 				],
-				notification: _('an old wanderer arrives'),
+				notification: _('a wise mentor arrives'),
 				blink: true,
 				buttons: {
 					'agree': {
 						text: _('agree'),
 						cost: {
-							'cured meat': 100,
-							'fur': 100,
+							'money': 100,
+							'clout': 100,
 							'torch': 1
 						},
 						nextScene: {1: 'agree'}
 					},
 					'deny': {
-						text: _('turn him away'),
+						text: _('turn her away'),
 						nextScene: 'end'
 					}
 				}
 			},
 			'agree': {
 				text: [
-					_('in exchange, the wanderer offers his wisdom.')
+					_('good call, the mentor offers her wisdom.')
 				],
 				buttons: {
 					'evasion': {
@@ -512,7 +492,7 @@ Events.Room = [
 			}
 		}
 	},
-		
+
 	{ /* The Sick Man */
 		title: _('The Sick Man'),
 		isAvailable: function() {

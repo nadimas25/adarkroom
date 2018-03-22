@@ -50,9 +50,9 @@ Events.Outside = [
 					_('it puts up little resistance before the knife.')
 				],
 				reward: {
-					fur: 100,
-					meat: 100,
-					teeth: 10
+					clout: 100,
+					leads: 100,
+					experience: 10
 				},
 				buttons: {
 					'end': {
@@ -64,28 +64,28 @@ Events.Outside = [
 		}
 	},
 	{
-		title: _('Fire'),
+		title: _('Unhappiness'),
 		isAvailable: function() {
-			return Engine.activeModule == Outside && $SM.get('game.buildings["hut"]', true) > 0 && $SM.get('game.population', true) > 5;
+			return Engine.activeModule == Outside && $SM.get('game.buildings["studio"]', true) > 0 && $SM.get('game.population', true) > 5;
 		},
 		scenes: {
 			'start': {
 				text: [
-					_('a fire rampages through one of the huts, destroying it.'),
-					_('all residents in the hut perished in the fire.')
+					_('unhappiness spreads through one of the studio.'),
+					_('all artists in the studio have left.')
 				],
-				notification: _('a fire has started'),
+				notification: _('unhappiness is spreading'),
 				blink: true,
 				onLoad: function() {
 					var population = $SM.get('game.population', true);
-					var huts = $SM.get('game.buildings["hut"]', true);
-					$SM.set('game.buildings["hut"]', (huts - 1));
+					var studios = $SM.get('game.buildings["studio"]', true);
+					$SM.set('game.buildings["studio"]', (huts - 1));
 					Outside.killVillagers(4);
 				},
 				buttons: {
 					'mourn': {
 						text: _('mourn'),
-						notification: _('some villagers have died'),
+						notification: _('some artists have been lost'),
 						nextScene: 'end'
 					}
 				}
@@ -147,7 +147,7 @@ Events.Outside = [
 			}
 		}
 	},
-		
+
 	{ /* Plague */
 		title: _('Plague'),
 		isAvailable: function() {
@@ -165,7 +165,7 @@ Events.Outside = [
 					'buyMedicine': {
 						text: _('buy medicine'),
 						cost: { 'scales': 70,
-								'teeth': 50 },
+								'experience': 50 },
 						reward: { 'medicine': 1 }
 					},
 					'heal': {
@@ -216,31 +216,31 @@ Events.Outside = [
 		}
 	},
 
-	{ /* Beast attack */
-		title: _('A Beast Attack'),
+	{ /* Gallery attack */
+		title: _('A Gallery Attacks'),
 		isAvailable: function() {
 			return Engine.activeModule == Outside && $SM.get('game.population', true) > 0;
 		},
 		scenes: {
 			'start': {
 				text: [
-					 _('a pack of snarling beasts pours out of the trees.'),
-					 _('the fight is short and bloody, but the beasts are repelled.'),
-					 _('the villagers retreat to mourn the dead.')
+					 _('workers from a commercial gallery blitz you, trying to lure your artists away.'),
+					 _('the fight is short and costly, but the gallerists are repelled.'),
+					 _('the artists retreat to mourn those who were lost to exploitation.')
 				],
 				onLoad: function() {
 					var numKilled = Math.floor(Math.random() * 10) + 1;
 					Outside.killVillagers(numKilled);
 				},
 				reward: {
-					fur: 100,
-					meat: 100,
-					teeth: 10
+					clout: 100,
+					leads: 100,
+					experience: 10
 				},
 				blink: true,
 				buttons: {
 					'end': {
-						text: _('go home'),
+						text: _('back to work'),
 						nextScene: 'end'
 					}
 				}
@@ -248,17 +248,17 @@ Events.Outside = [
 		}
 	},
 
-	{ /* Soldier attack */
-		title: _('A Military Raid'),
+	{ /* Start-up attack */
+		title: _('Instagram Attacks'),
 		isAvailable: function() {
 			return Engine.activeModule == Outside && $SM.get('game.population', true) > 0 && $SM.get('game.cityCleared');
 		},
 		scenes: {
 			'start': {
 				text: [
-					_('a gunshot rings through the trees.'),
-					_('well armed men charge out of the forest, firing into the crowd.'),
-					_('after a skirmish they are driven away, but not without losses.')
+					_('an email chain is making its rounds.'),
+					_('Instagram employees have found a way to get your artist\'s contact info.'),
+					_('after threat of a lawsuit, they are driven away, but not without losses.')
 				],
 				onLoad: function() {
 					var numKilled = Math.floor(Math.random() * 40) + 1;
@@ -266,13 +266,13 @@ Events.Outside = [
 				},
 				reward: {
 					bullets: 10,
-					'cured meat': 50
+					'money': 50
 				},
-				
+
 				blink: true,
 				buttons: {
 					'end': {
-						text: _('go home'),
+						text: _('back to work'),
 						nextScene: 'end'
 					}
 				}

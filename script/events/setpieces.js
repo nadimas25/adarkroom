@@ -1,4 +1,4 @@
-/**
+money/**
  * Events that only occur at specific times. Launched manually.
  **/
 Events.Setpieces = {
@@ -11,7 +11,7 @@ Events.Setpieces = {
 				],
 				notification: _('a safe place in the wilds.'),
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 5,
 						max: 10,
 						chance: 1
@@ -108,7 +108,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'a1': {
 				combat: true,
 				enemy: 'beast',
@@ -119,12 +119,12 @@ Events.Setpieces = {
 				health: 5,
 				notification: _('a startled beast defends its home'),
 				loot: {
-					'fur': {
+					'clout': {
 						min: 1,
 						max: 10,
 						chance: 1
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -165,7 +165,7 @@ Events.Setpieces = {
 					_('bedrolls, torn and blackened, lay beneath a thin layer of dust.')
 				],
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 1
@@ -175,7 +175,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.5
 					},
-					'leather': {
+					'confidence': {
 						min: 1,
 						max: 5,
 						chance: 0.3
@@ -207,7 +207,7 @@ Events.Setpieces = {
 						max: 1,
 						chance: 1
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -264,12 +264,12 @@ Events.Setpieces = {
 				health: 5,
 				notification: _('a startled beast defends its home'),
 				loot: {
-					'fur': {
+					'clout': {
 						min: 1,
 						max: 3,
 						chance: 1
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 2,
 						chance: 0.8
@@ -298,12 +298,12 @@ Events.Setpieces = {
 				health: 6,
 				notification: _('a cave lizard attacks'),
 				loot: {
-					'scales': {
+					'intelligence': {
 						min: 1,
 						max: 3,
 						chance: 1
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 2,
 						chance: 0.8
@@ -332,12 +332,12 @@ Events.Setpieces = {
 				health: 10,
 				notification: _('a large beast charges out of the dark'),
 				loot: {
-					'fur': {
+					'clout': {
 						min: 1,
 						max: 3,
 						chance: 1
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 3,
 						chance: 1
@@ -366,12 +366,12 @@ Events.Setpieces = {
 				health: 10,
 				notification: _('a giant lizard shambles forward'),
 				loot: {
-					'scales': {
+					'intelligence': {
 						min: 1,
 						max: 3,
 						chance: 1
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 3,
 						chance: 1
@@ -403,17 +403,17 @@ Events.Setpieces = {
 						max: 10,
 						chance: 1
 					},
-					'fur': {
+					'clout': {
 						min: 5,
 						max: 10,
 						chance: 1
 					},
-					'scales': {
+					'intelligence': {
 						min: 5,
 						max: 10,
 						chance: 1
 					},
-					'teeth': {
+					'experience': {
 						min: 5,
 						max: 10,
 						chance: 1
@@ -442,7 +442,7 @@ Events.Setpieces = {
 						max: 10,
 						chance: 1
 					},
-					'leather': {
+					'confidence': {
 						min: 5,
 						max: 10,
 						chance: 1
@@ -452,7 +452,7 @@ Events.Setpieces = {
 						max: 10,
 						chance: 1
 					},
-					'cured meat': {
+					'money': {
 						min: 5,
 						max: 10,
 						chance: 1
@@ -538,7 +538,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'a1': {
 				text: [
 					_("where the windows of the schoolhouse aren't shattered, they're blackened with soot."),
@@ -556,7 +556,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'a2': {
 				combat: true,
 				enemy: 'thug',
@@ -571,12 +571,12 @@ Events.Setpieces = {
 						max: 10,
 						chance: 0.8
 					},
-					'leather': {
+					'confidence': {
 						min: 5,
 						max: 10,
 						chance: 0.8
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.5
@@ -618,7 +618,7 @@ Events.Setpieces = {
 					_('a small cache of supplies is tucked inside a rusting locker.')
 				],
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 1
@@ -666,12 +666,12 @@ Events.Setpieces = {
 						max: 10,
 						chance: 0.8
 					},
-					'leather': {
+					'confidence': {
 						min: 5,
 						max: 10,
 						chance: 0.8
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.5
@@ -700,12 +700,12 @@ Events.Setpieces = {
 				attackDelay: 1,
 				health: 25,
 				loot: {
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 5,
 						chance: 1
 					},
-					'fur': {
+					'clout': {
 						min: 5,
 						max: 10,
 						chance: 1
@@ -731,7 +731,7 @@ Events.Setpieces = {
 					_("it's been picked over by scavengers, but there's still some things worth taking.")
 				],
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -779,7 +779,7 @@ Events.Setpieces = {
 						max: 4,
 						chance: 0.3
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.9
@@ -818,12 +818,12 @@ Events.Setpieces = {
 						max: 10,
 						chance: 0.8
 					},
-					'leather': {
+					'confidence': {
 						min: 5,
 						max: 10,
 						chance: 0.8
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.5
@@ -852,12 +852,12 @@ Events.Setpieces = {
 				attackDelay: 1,
 				health: 25,
 				loot: {
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 5,
 						chance: 1
 					},
-					'fur': {
+					'clout': {
 						min: 5,
 						max: 10,
 						chance: 1
@@ -903,12 +903,12 @@ Events.Setpieces = {
 				attackDelay: 1,
 				health: 25,
 				loot: {
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 5,
 						chance: 1
 					},
-					'fur': {
+					'clout': {
 						min: 5,
 						max: 10,
 						chance: 1
@@ -950,7 +950,7 @@ Events.Setpieces = {
 					_("can't read the words.")
 				],
 			loot: {
-				'cured meat': {
+				'money': {
 					min: 1,
 					max: 5,
 					chance: 1
@@ -978,12 +978,12 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 30,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 1
 					},
-					'leather': {
+					'confidence': {
 						min: 5,
 						max: 10,
 						chance: 0.8
@@ -1017,12 +1017,12 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 30,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 1
 					},
-					'leather': {
+					'confidence': {
 						min: 5,
 						max: 10,
 						chance: 0.8
@@ -1066,7 +1066,7 @@ Events.Setpieces = {
 						max: 10,
 						chance: 1
 					},
-					'cured meat': {
+					'money': {
 						min: 5,
 						max: 10,
 						chance: 1
@@ -1104,12 +1104,12 @@ Events.Setpieces = {
 						max: 10,
 						chance: 1
 					},
-					'cured meat': {
+					'money': {
 						min: 5,
 						max: 10,
 						chance: 1
 					},
-					'leather': {
+					'confidence': {
 						min: 5,
 						max: 10,
 						chance: 1
@@ -1161,7 +1161,7 @@ Events.Setpieces = {
 					World.clearDungeon();
 				},
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 5,
 						max: 10,
 						chance: 1
@@ -1347,12 +1347,12 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 20,
 				loot: {
-					'scales': {
+					'intelligence': {
 						min: 5,
 						max: 10,
 						chance: 0.8
 					},
-					'teeth': {
+					'experience': {
 						min: 5,
 						max: 10,
 						chance: 0.5
@@ -1387,7 +1387,7 @@ Events.Setpieces = {
 				health: 30,
 				ranged: true,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -1427,7 +1427,7 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 50,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -1466,7 +1466,7 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 10,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -1476,7 +1476,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.5
 					},
-					'leather': {
+					'confidence': {
 						min: 1,
 						max: 1,
 						chance: 0.2
@@ -1542,7 +1542,7 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 10,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 3,
 						chance: 0.5
@@ -1586,7 +1586,7 @@ Events.Setpieces = {
 						max: 1,
 						chance: 0.5
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 3,
 						chance: 0.5
@@ -1610,7 +1610,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'c2': {
 				notification: _('a snarling beast jumps out from behind a car.'),
 				combat: true,
@@ -1626,12 +1626,12 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.8
 					},
-					'fur': {
+					'clout': {
 						min: 1,
 						max: 5,
 						chance: 0.8
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 5,
 						chance: 0.5
@@ -1650,7 +1650,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'c3': {
 				text: [
 					_('street above the subway platform is blown away.'),
@@ -1669,7 +1669,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'c4': {
 				text: [
 					_('looks like a camp of sorts up ahead.'),
@@ -1688,7 +1688,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'c5': {
 				text: [
 					_('more voices can be heard ahead.'),
@@ -1705,7 +1705,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'c6': {
 				text: [
 					_('the sound of gunfire carries on the wind.'),
@@ -1722,7 +1722,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'c7': {
 				text: [
                     /// TRANSLATORS : squatters occupy abandoned dwellings they don't own.
@@ -1740,7 +1740,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'c8': {
 				text: [
 					_('an improvised shop is set up on the sidewalk.'),
@@ -1786,14 +1786,14 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'c9': {
 				text: [
 					_('strips of meat hang drying by the side of the street.'),
 					_('the people back away, avoiding eye contact.')
 				],
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 5,
 						max: 10,
 						chance: 1
@@ -1812,7 +1812,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'c10': {
 				text: [
 					_('someone has locked and barricaded the door to this operating theatre.')
@@ -1828,7 +1828,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'c11': {
 				notification: _('a tribe of elderly squatters is camped out in this ward.'),
 				combat: true,
@@ -1840,7 +1840,7 @@ Events.Setpieces = {
 				attackDelay: 0.5,
 				health: 40,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 3,
 						chance: 0.5
@@ -1869,7 +1869,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'c12': {
 				notification: _('a pack of lizards rounds the corner.'),
 				combat: true,
@@ -1886,12 +1886,12 @@ Events.Setpieces = {
 						max: 8,
 						chance: 1
 					},
-					'teeth': {
+					'experience': {
 						min: 2,
 						max: 4,
 						chance: 1
 					},
-					'scales': {
+					'intelligence': {
 						min: 3,
 						max: 5,
 						chance: 1
@@ -1910,13 +1910,13 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'c13': {
 				text: [
 					_('strips of meat are hung up to dry in this ward.')
 				],
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 3,
 						max: 10,
 						chance: 1
@@ -1935,7 +1935,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-						
+
 			'd1': {
 				notification: _('a large bird nests at the top of the stairs.'),
 				combat: true,
@@ -1965,7 +1965,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'd2': {
 				text: [
 					_("the debris is denser here."),
@@ -2006,7 +2006,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'd3': {
 				notification: _('a swarm of rats rushes up the tunnel.'),
 				combat: true,
@@ -2018,12 +2018,12 @@ Events.Setpieces = {
 				attackDelay: 0.25,
 				health: 60,
 				loot: {
-					'fur': {
+					'clout': {
 						min: 5,
 						max: 10,
 						chance: 0.8
 					},
-					'teeth': {
+					'experience': {
 						min: 5,
 						max: 10,
 						chance: 0.5
@@ -2042,7 +2042,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'd4': {
 				notification: _('a large man attacks, waving a bayonet.'),
 				combat: true,
@@ -2058,7 +2058,7 @@ Events.Setpieces = {
 						max: 1,
 						chance: 0.5
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -2077,7 +2077,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'd5': {
 				notification: _('a second soldier opens fire.'),
 				combat: true,
@@ -2089,7 +2089,7 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 50,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -2118,7 +2118,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'd6': {
 				notification: _('a masked soldier rounds the corner, gun drawn'),
 				combat: true,
@@ -2140,7 +2140,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.8
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -2159,7 +2159,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'd7': {
 				notification: _('the crowd surges forward.'),
 				combat: true,
@@ -2176,7 +2176,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.8
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 5,
 						chance: 0.5
@@ -2195,7 +2195,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'd8': {
 				notification: _('a youth lashes out with a tree branch.'),
 				combat: true,
@@ -2211,7 +2211,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.8
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 5,
 						chance: 0.5
@@ -2230,7 +2230,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'd9': {
 				notification: _('a squatter stands firmly in the doorway of a small hut.'),
 				combat: true,
@@ -2246,7 +2246,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.8
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 5,
 						chance: 0.5
@@ -2265,7 +2265,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'd10': {
 				notification: _('behind the door, a deformed figure awakes and attacks.'),
 				combat: true,
@@ -2281,7 +2281,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.8
 					},
-					'teeth': {
+					'experience': {
 						min: 2,
 						max: 2,
 						chance: 1
@@ -2291,7 +2291,7 @@ Events.Setpieces = {
 						max: 3,
 						chance: 0.6
 					},
-					'scales': {
+					'intelligence': {
 						min: 2,
 						max: 3,
 						chance: 0.1
@@ -2305,7 +2305,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'd11': {
 				notification: _('as soon as the door is open a little bit, hundreds of tentacles erupt.'),
 				combat: true,
@@ -2331,7 +2331,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-		
+
 			'end1': {
 				text: [
 					_('bird must have liked shiney things.'),
@@ -2366,7 +2366,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end2': {
 				text: [
 					_('not much here.'),
@@ -2382,7 +2382,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.8
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.5
@@ -2396,7 +2396,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end3': {
 				text: [
                     /// TRANSLATORS : a platform in the subway
@@ -2443,7 +2443,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end4': {
 				text: [
 					_('the small military outpost is well supplied.'),
@@ -2479,7 +2479,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end5': {
 				text: [
 					_('searching the bodies yields a few supplies.'),
@@ -2501,7 +2501,7 @@ Events.Setpieces = {
 						max: 10,
 						chance: 1
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -2520,7 +2520,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end6': {
 				text: [
 					_('the small settlement has clearly been burning a while.'),
@@ -2542,7 +2542,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.5
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 10,
 						chance: 1
@@ -2556,7 +2556,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end7': {
 				text: [
 					_('the remaining settlers flee from the violence, their belongings forgotten.'),
@@ -2577,7 +2577,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.5
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 10,
 						chance: 1
@@ -2591,7 +2591,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end8': {
 				text: [
 					_('the young settler was carrying a canvas sack.'),
@@ -2613,7 +2613,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.5
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 10,
 						chance: 1
@@ -2627,7 +2627,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end9': {
 				text: [
 					_('inside the hut, a child cries.'),
@@ -2668,7 +2668,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end10': {
 				text: [
 					_('the stench of rot and death fills the operating theatres.'),
@@ -2690,12 +2690,12 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.3
 					},
-					'teeth': {
+					'experience': {
 						min: 3,
 						max: 8,
 						chance: 1
 					},
-					'scales': {
+					'intelligence': {
 						min: 4,
 						max: 7,
 						chance: 0.9
@@ -2709,7 +2709,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end11': {
 				text: [
 					_('a pristine medicine cabinet at the end of a hallway.'),
@@ -2730,7 +2730,7 @@ Events.Setpieces = {
 						max: 10,
 						chance: 1
 					},
-					'teeth': {
+					'experience': {
 						min: 1,
 						max: 2,
 						chance: 0.2
@@ -2744,7 +2744,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end12': {
 				text: [
 					_('someone had been stockpiling loot here.')
@@ -2793,7 +2793,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end13': {
 				text: [
 					_('the tentacular horror is defeated.'),
@@ -2814,7 +2814,7 @@ Events.Setpieces = {
 						max: 2,
 						chance: 0.3
 					},
-					'teeth': {
+					'experience': {
 						min: 2,
 						max: 8,
 						chance: 1
@@ -2838,7 +2838,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end14': {
 				text: [
                     /// TRANSLATORS : warped means extremely disfigured.
@@ -2884,7 +2884,7 @@ Events.Setpieces = {
 					}
 				}
 			},
-			
+
 			'end15': {
 				text: [
 					_('the old man had a small cache of interesting items.')
@@ -2904,7 +2904,7 @@ Events.Setpieces = {
 					max: 4,
 					chance: 1
 					},
-					'cured meat': {
+					'money': {
 					min: 3,
 					max: 7,
 					chance: 1
@@ -2914,7 +2914,7 @@ Events.Setpieces = {
 					max: 3,
 					chance: 0.5
 					},
-					'fur': {
+					'clout': {
 					min: 1,
 					max: 5,
 					chance: 0.8
@@ -2961,12 +2961,12 @@ Events.Setpieces = {
 					Notifications.notify(null, _('water replenished'));
 				},
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 10,
 						chance: 0.8
 					},
-					'leather': {
+					'confidence': {
 						min: 1,
 						max: 10,
 						chance: 0.2
@@ -3021,12 +3021,12 @@ Events.Setpieces = {
 					World.markVisited(World.curPos[0], World.curPos[1]);
 				},
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 10,
 						chance: 0.8
 					},
-					'leather': {
+					'confidence': {
 						min: 1,
 						max: 10,
 						chance: 0.2
@@ -3182,7 +3182,7 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 50,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -3222,7 +3222,7 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 50,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -3266,7 +3266,7 @@ Events.Setpieces = {
 						max: 1,
 						chance: 0.5
 					},
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -3330,7 +3330,7 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 10,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -3364,7 +3364,7 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 10,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -3398,7 +3398,7 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 20,
 				loot: {
-					'cured meat': {
+					'money': {
 						min: 5,
 						max: 10,
 						chance: 1
@@ -3474,12 +3474,12 @@ Events.Setpieces = {
 				attackDelay: 2,
 				health: 10,
 				loot: {
-					'teeth': {
+					'experience': {
 						min: 5,
 						max: 10,
 						chance: 1
 					},
-					'scales': {
+					'intelligence': {
 						min: 5,
 						max: 10,
 						chance: 0.8
@@ -3519,7 +3519,7 @@ Events.Setpieces = {
 			}
 		}
 	},
-	
+
 	"cache": { /* Cache - contains some of supplies from previous game */
 		title: _('A Destroyed Village'),
 		scenes: {
