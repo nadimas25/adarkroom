@@ -1,4 +1,4 @@
-Artwork/**
+/**
  * Events that can occur when the Room module is active
  **/
 Events.Room = [
@@ -26,11 +26,11 @@ Events.Room = [
 						cost: { 'clout': 200 },
 						reward: { 'experience': 1 }
 					},
-					'buyBait': {
-						text: _('buy bait'),
+					'buySamples': {
+						text: _('give free samples'),
 						cost: { 'clout': 5 },
-						reward: { 'bait': 1 },
-						notification: _('traps are more effective with bait.')
+						reward: { 'samples': 1 },
+						notification: _('discounts are more effective with free samples.')
 					},
 					'buyCompass': {
 						available: function() {

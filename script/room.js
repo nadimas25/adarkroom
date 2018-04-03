@@ -6,28 +6,28 @@ var Room = {
 	_FIRE_COOL_DELAY: 5 * 60 * 1000, // time after a stoke before the fire cools
 	_ROOM_WARM_DELAY: 30 * 1000, // time between room temperature updates
 	_BUILDER_STATE_DELAY: 0.5 * 60 * 1000, // time between builder state updates
-	_STOKE_COOLDOWN: 10, // cooldown to stoke the fire
+	_STOKE_COOLDOWN: 1, // cooldown to stoke the fire
 	_NEED_WOOD_DELAY: 15 * 1000, // from when the stranger shows up, to when you need wood
 
 	buttons:{},
 
 	Craftables: {
-		'trap': {
+		'discount': {
 			name: _('trap'),
 			button: null,
 			maximum: 10,
-			availableMsg: _('builder says she can make traps to catch any creatures might still be alive out there'),
-			buildMsg: _('more traps to catch more creatures'),
-			maxMsg: _("more traps won't help now"),
+			availableMsg: _('curator says that discounts can convince people to buy things they might not be able to afford'),
+			buildMsg: _('more discounts to sell more artwork'),
+			maxMsg: _("more discounts won't help now"),
 			type: 'building',
 			cost: function() {
-				var n = $SM.get('game.buildings["trap"]', true);
+				var n = $SM.get('game.buildings["discount"]', true);
 				return {
 					'artwork': 10 + (n*10)
 				};
 			}
 		},
-		'cart': {
+		'truck': {
 			name: _('cart'),
 			button: null,
 			maximum: 1,
@@ -338,13 +338,13 @@ var Room = {
 		'intelligence': {
 			type: 'good',
 			cost: function() {
-				return { fur: 150 };
+				return { clout: 150 };
 			}
 		},
 		'experience': {
 			type: 'good',
 			cost: function() {
-				return { fur: 300 };
+				return { clout: 300 };
 			}
 		},
 		'iron': {
@@ -560,7 +560,7 @@ var Room = {
 				stores: {'artwork' : 2 }
 			});
 			Room.updateIncomeView();
-			Notifications.notify(Room, _("the curator is standing in the middle of the gallery. he says he has 10k IG followers. says he fucks with the vision."));
+			Notifications.notify(Room, _("the curator is standing in the middle of the gallery. he says he has 50k IG followers. says he fucks with the vision."));
 		}
 
 		Engine.moveStoresView(null, transition_diff);
@@ -578,8 +578,8 @@ var Room = {
 		Freezing: { value: 0, text: _('closed') },
 		Cold: { value: 1, text: _('losing money') },
 		Mild: { value: 2, text: _('breaking even') },
-		Warm: { value: 3, text: _('profitable') },
-		Hot: { value: 4, text: _('rich') }
+		Warm: { value: 3, text: _('making some money') },
+		Hot: { value: 4, text: _('outperforming projections') }
 	},
 
 	FireEnum: {
@@ -593,9 +593,9 @@ var Room = {
 		},
 		Dead: { value: 0, text: _('dead') },
 		Smoldering: { value: 1, text: _('dwindling') },
-		Flickering: { value: 2, text: _('consistent') },
-		Burning: { value: 3, text: _('high') },
-		Roaring: { value: 4, text: _('omnipresent') }
+		Flickering: { value: 2, text: _('slight') },
+		Burning: { value: 3, text: _('increasing') },
+		Roaring: { value: 4, text: _('growing exponentially') }
 	},
 
 	setTitle: function() {

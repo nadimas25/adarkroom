@@ -5,7 +5,7 @@ Events.Outside = [
 	{ /* Ruined traps */
 	title: _('A Ruined Trap'),
 		isAvailable: function() {
-			return Engine.activeModule == Outside && $SM.get('game.buildings["trap"]', true) > 0;
+			return Engine.activeModule == Outside && $SM.get('game.buildings["discount"]', true) > 0;
 		},
 		scenes: {
 			'start': {
@@ -14,10 +14,10 @@ Events.Outside = [
 					_('large prints lead away, into the forest.')
 				],
 				onLoad: function() {
-					var numWrecked = Math.floor(Math.random() * $SM.get('game.buildings["trap"]', true)) + 1;
-					$SM.add('game.buildings["trap"]', -numWrecked);
+					var numWrecked = Math.floor(Math.random() * $SM.get('game.buildings["discount"]', true)) + 1;
+					$SM.add('game.buildings["discount"]', -numWrecked);
 					Outside.updateVillage();
-					Outside.updateTrapButton();
+					Outside.updateDiscountButton();
 				},
 				notification: _('some traps have been destroyed'),
 				blink: true,
@@ -79,7 +79,7 @@ Events.Outside = [
 				onLoad: function() {
 					var population = $SM.get('game.population', true);
 					var studios = $SM.get('game.buildings["studio"]', true);
-					$SM.set('game.buildings["studio"]', (huts - 1));
+					$SM.set('game.buildings["studio"]', (studios - 1));
 					Outside.killVillagers(4);
 				},
 				buttons: {

@@ -33,7 +33,7 @@ Studio(function(){
 		_('sulphur mine'),
 		_('armourer'),
 		_('steelworker'),
-		_('bait'),
+		_('samples'),
 		_('money'),
 		_('intelligence'),
 		_('compass'),
@@ -78,7 +78,7 @@ Studio(function(){
 		div#perks:before{ content: \''+ _("perks:") + '\'}\
 		div#lootButtons:before { content: \''+ _("take:") + '\'}\
 		div#dropMenu:before { content: \''+ _("drop:") + '\'}\
-		div#village.noHuts:before { content: \'' + _("loft") + '\'}\
+		div#village.noStudios:before { content: \'' + _("loft") + '\'}\
 		div#village:before { content: \'' + _("village") + '\'}\
 	').appendTo($('head'));
 })();

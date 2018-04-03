@@ -5,8 +5,8 @@ var Outside = {
 	name: _("Outside"),
 
 	_STORES_OFFSET: 0,
-	_GATHER_DELAY: 60,
-	_TRAPS_DELAY: 90,
+	_GATHER_DELAY: 1,
+	_TRAPS_DELAY: 1,
 	_POP_DELAY: [0.5, 3],
 
 	_INCOME: {
@@ -30,7 +30,7 @@ var Outside = {
 			delay: 10,
 			stores: {
 				'leads': -1,
-				'bait': 1
+				'samples': 1
 			}
 		},
 		'marketer': {
@@ -94,7 +94,7 @@ var Outside = {
 		}
 	},
 
-	TrapDrops: [
+	DiscountDrops: [
 		{
 			rollUnder: 0.5,
 			name: 'clout',
@@ -103,7 +103,7 @@ var Outside = {
 		{
 			rollUnder: 0.75,
 			name: 'leads',
-			message: _('a few leads')
+			message: _('some leads')
 		},
 		{
 			rollUnder: 0.85,
@@ -402,13 +402,13 @@ var Outside = {
 		}
 
 		for(var k in $SM.get('game.buildings')) {
-			if(k == 'trap') {
-				var numTraps = $SM.get('game.buildings["'+k+'"]');
-				var numBait = $SM.get('stores.bait', true);
-				var traps = numTraps - numBait;
-				traps = traps < 0 ? 0 : traps;
-				Outside.updateVillageRow(k, traps, village);
-				Outside.updateVillageRow('baited trap', numBait > numTraps ? numTraps : numBait, village);
+			if(k == 'discount') {
+				var numDiscounts = $SM.get('game.buildings["'+k+'"]');
+				var numSamples = $SM.get('stores.samples', true);
+				var discounts = numDiscounts - numSamples;
+				discounts = discounts < 0 ? 0 : discounts;
+				Outside.updateVillageRow(k, discounts, village);
+				Outside.updateVillageRow('baited traps', numSamples > numDiscounts ? numDiscounts : numSamples, village);
 			} else {
 				if(Outside.checkWorker(k)) {
 					Outside.updateWorkersView();
@@ -502,14 +502,14 @@ var Outside = {
 		Room.updateIncomeView();
 	},
 
-	updateTrapButton: function() {
-		var btn = $('div#trapsButton');
-		if($SM.get('game.buildings["trap"]', true) > 0) {
+	updateDiscountButton: function() {
+		var btn = $('div#discountsButton');
+		if($SM.get('game.buildings["discount"]', true) > 0) {
 			if(btn.length === 0) {
 				new Button.Button({
-					id: 'trapsButton',
-					text: _("check traps"),
-					click: Outside.checkTraps,
+					id: 'discountsButton',
+					text: _("give discounts"),
+					click: Outside.checkDiscounts,
 					cooldown: Outside._TRAPS_DELAY,
 					width: '80px'
 				}).appendTo('div#outsidePanel');
@@ -552,7 +552,7 @@ var Outside = {
 			Notifications.notify(Outside, _("a new space, ah, the possibilities are endless..."));
 			$SM.set('game.outside.seenForest', true);
 		}
-		Outside.updateTrapButton();
+		Outside.updateDiscountButton();
 		Outside.updateVillage(true);
 
 		Engine.moveStoresView($('#village'), transition_diff);
@@ -564,16 +564,16 @@ var Outside = {
 		$SM.add('stores.artwork', gatherAmt);
 	},
 
-	checkTraps: function() {
+	checkDiscounts: function() {
 		var drops = {};
 		var msg = [];
-		var numTraps = $SM.get('game.buildings["trap"]', true);
-		var numBait = $SM.get('stores.bait', true);
-		var numDrops = numTraps + (numBait < numTraps ? numBait : numTraps);
+		var numDiscounts = $SM.get('game.buildings["discount"]', true);
+		var numSamples = $SM.get('stores.samples', true);
+		var numDrops = numDiscounts + (numSamples < numDiscounts ? numSamples : numDiscounts);
 		for(var i = 0; i < numDrops; i++) {
 			var roll = Math.random();
-			for(var j in Outside.TrapDrops) {
-				var drop = Outside.TrapDrops[j];
+			for(var j in Outside.DiscountDrops) {
+				var drop = Outside.DiscountDrops[j];
 				if(roll < drop.rollUnder) {
 					var num = drops[drop.name];
 					if(typeof num == 'undefined') {
@@ -586,7 +586,7 @@ var Outside = {
 			}
 		}
         /// TRANSLATORS : Mind the whitespace at the end.
-		var s = _('the traps contain ');
+		var s = _('discounts have given you ');
 		for(var i = 0, len = msg.length; i < len; i++) {
 			if(len > 1 && i > 0 && i < len - 1) {
 				s += ", ";
@@ -597,8 +597,8 @@ var Outside = {
 			s += msg[i];
 		}
 
-		var baitUsed = numBait < numTraps ? numBait : numTraps;
-		drops['bait'] = -baitUsed;
+		var samplesUsed = numSamples < numDiscounts ? numSamples : numDiscounts;
+		drops['samples'] = -samplesUsed;
 
 		Notifications.notify(Outside, s);
 		$SM.addM('stores', drops);

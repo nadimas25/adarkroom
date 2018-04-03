@@ -20,7 +20,7 @@ var Prestige = {
 		{ store: 'intelligence', type: 'g' },
 		{ store: 'experience', type: 'g' },
 		{ store: 'confidence', type: 'g' },
-		{ store: 'bait', type: 'g' },
+		{ store: 'free samples', type: 'g' },
 		{ store: 'guest list +1', type: 'g' },
 		{ store: 'cloth', type: 'g' },
 		{ store: 'bone spear', type: 'w' },
