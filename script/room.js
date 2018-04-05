@@ -957,7 +957,7 @@ var Room = {
 		}
 	},
 
-	needsLibrary: function(type) {
+	needsWorkshop: function(type) {
 		return type == 'weapon' || type == 'upgrade' || type =='tool';
 	},
 
@@ -967,7 +967,7 @@ var Room = {
 		}
 		if($SM.get('game.builder.level') < 4) return false;
 		var craftable = Room.Craftables[thing];
-		if(Room.needsLibrary(craftable.type) && $SM.get('game.buildings["'+'library'+'"]', true) === 0) return false;
+		if(Room.needsWorkshop(craftable.type) && $SM.get('game.buildings["'+'library'+'"]', true) === 0) return false;
 		var cost = craftable.cost();
 
 		//show button if one has already been built
@@ -1032,7 +1032,7 @@ var Room = {
 			var max = $SM.num(k, craftable) + 1 > craftable.maximum;
 			if(craftable.button == null) {
 				if(Room.craftUnlocked(k)) {
-					var loc = Room.needsLibrary(craftable.type) ? craftSection : buildSection;
+					var loc = Room.needsWorkshop(craftable.type) ? craftSection : buildSection;
 					craftable.button = new Button.Button({
 						id: 'build_' + k,
 						cost: craftable.cost(),
