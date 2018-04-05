@@ -26,7 +26,7 @@ var Path = {
 		World.init();
 
 		// Create the path tab
-		this.tab = Header.addLocation(_("The Club"), "path", Path);
+		this.tab = Header.addLocation(_("Art Basel"), "path", Path);
 
 		// Create the Path panel
 		this.panel = $('<div>').attr('id', "pathPanel")
@@ -40,7 +40,7 @@ var Path = {
 		// Add the embark button
 		new Button.Button({
 			id: 'embarkButton',
-			text: _("go out"),
+			text: _("depart"),
 			click: Path.embark,
 			width: '80px',
 			cooldown: World.DEATH_COOLDOWN

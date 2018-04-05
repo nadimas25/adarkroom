@@ -1,10 +1,14 @@
 /* Fonts */
 body, .tooltip, select.menuBtn {
-	font-family: "Times New Roman", Times, serif;
-	font-size: 16px;
+	font-size: 11px;
 	font-weight: normal;
 	line-height: normal;
 	letter-spacing: normal;
+}
+
+@font-face {
+    font-family: authentic;
+    src: url(../fonts/AUTHENTIC-Sans.woff) format('woff');
 }
 
 html {
@@ -14,25 +18,30 @@ html {
 body {
 	height: 100%;
 	margin: 0;
+	font-family: 'authentic', "Times New Roman", Times, serif;
 }
 
 ::selection {
-	background-color: transparent;
+	background-color: #0000FF;
 }
 
 ::-moz-selection {
-	background-color: transparent;
+	background-color: #0000FF;
 }
 
 #description textarea::selection {
-	background-color: gray;
+	background-color: #0000FF;
 }
 
 #description textarea::-moz-selection {
-	background-color: gray;
+	background-color: #0000FF;
 }
 
+
 /* Framework stuff */
+body {
+    background-color: #FFFBFB;
+}
 
 div.clear {
 	clear: both;
@@ -49,7 +58,8 @@ div#saveNotify {
 	position: absolute;
 	top: 20px;
 	right: 0px;
-	background: white;
+	color: #FFFFFF;
+	background-color: #0000FF;
 	opacity: 0;
 }
 
@@ -68,7 +78,7 @@ div#header {
 	position: fixed;
 	right: 10px;
 	bottom: 10px;
-	color: #666;
+	color: #0000FF;
 }
 
 .menu span {
@@ -114,7 +124,7 @@ span.customSelectOptions {
 }
 
 .customSelectOptions > ul > li:hover {
-	text-decoration: underline;
+	border-bottom: 1px solid #0000FF;
 }
 
 .customSelectOptions > ul > li:first-child:hover {
@@ -123,11 +133,11 @@ span.customSelectOptions {
 }
 
 .menu span:hover {
-	text-decoration: underline;
+	border-bottom: 1px solid #0000FF;
 }
 
 div.headerButton {
-	font-size: 18px;
+	font-size: 14px;
 	cursor: pointer;
 	float: left;
 	border-left: 1px solid black;
@@ -136,7 +146,7 @@ div.headerButton {
 }
 
 div.headerButton:hover {
-	text-decoration: underline;
+	border-bottom: 1px solid #0000FF;
 }
 
 div.headerButton:first-child {
@@ -147,7 +157,7 @@ div.headerButton:first-child {
 
 div.headerButton.selected, div.headerButton.selected:hover {
 	cursor: default;
-	text-decoration: underline;
+	border-bottom: 1px solid #0000FF;
 }
 
 div#outerSlider {
@@ -204,10 +214,10 @@ div#notifyGradient {
 	width: 100%;
 	background-color: white;
 	background: -webkit-linear-gradient(
-		rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%
+		rgba(39, 40, 35, 0) 0%, rgba(256, 256, 256, 1) 100%
 	);
 	background: linear-gradient(
-		rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%
+		rgba(39, 40, 35, 0) 0%, rgba(256, 256, 256, 1) 100%
 	);
 	filter: alpha(
 		Opacity=0, FinishOpacity=100, Style=1, StartX=0, StartY=0, FinishX=0, FinishY=500
@@ -234,13 +244,16 @@ div.button {
 
 div.button:hover {
 	text-decoration: underline;
+	text-decoration-color: #0000FF;
 }
 
 div.button.disabled, div.button.disabled:hover {
 	cursor: default;
-	border-color: #b2b2b2;
-	color: #b2b2b2;
-	text-decoration: none;
+	border-color: #000;
+	color: #0000FF;
+	text-decoration: line-through;
+	text-decoration-color: #0000FF;
+
 }
 
 div.button div.cooldown {
@@ -249,7 +262,7 @@ div.button div.cooldown {
 	left: 0px;
 	z-index: -1;
 	height: 100%;
-	background-color: #DDDDDD;
+	background-color: #0000FF;
 }
 
 /* Up/Down buttons. They're complicated! */
@@ -258,7 +271,7 @@ div.button div.cooldown {
 	position: absolute;
 	width: 14px;
 	height: 15px;
-	cursor: pointer;
+	cursor: n-resize;
 }
 
 .upBtn, .dnBtn {
@@ -270,15 +283,15 @@ div.button div.cooldown {
 }
 
 .upBtn.disabled, .dnBtn.disabled, .upManyBtn.disabled, .dnManyBtn.disabled {
-	cursor: default;
+	cursor: s-resize;
 }
 
 .upBtn {
-	top: -2px;
+	top: -6px;
 }
 
 .upManyBtn {
-	top: -2px;
+	top: -6px;
 }
 
 .upBtn:after, .upBtn:before, .upManyBtn:after, .upManyBtn:before {
@@ -299,16 +312,16 @@ div.button div.cooldown {
 }
 
 .upBtn.disabled:before, .upManyBtn.disabled:before {
-	border-color: transparent transparent #999;
+	border-color: transparent transparent #ECECEC;
 }
 
 
 .dnBtn {
-	bottom: -3px;
+	bottom: -6px;
 }
 
 .dnManyBtn {
-	bottom: -3px;
+	bottom: -6px;
 }
 
 .dnBtn:after, .dnBtn:before, .dnManyBtn:after, .dnManyBtn:before {
@@ -361,7 +374,8 @@ div.tooltip {
 	padding: 2px 5px;
 	border: 1px solid black;
 	position: absolute;
-	box-shadow: -1px 3px 2px #666;
+	box-shadow: 0px 0px 25px #000;
+	-webkit-box-shadow: 0px 0px 25px #000;
 	background: white;
 	z-index: 999;
 }
@@ -438,8 +452,8 @@ body.noMask .eventPanel:before {
 	width: 100%;
 	height: 100%;
 	content: " ";
-	border: 2px solid black;
-	box-shadow: 5px 5px 5px #666666;
+	border: 0px;
+	box-shadow: 0px 0px 25px 0px rgba(0,0,0,100);
 	z-index: -2;
 }
 
@@ -448,8 +462,10 @@ body.noMask .eventPanel:after {
 }
 
 .eventPanel .button {
-	float:left;
-	margin-right: 20px;
+	display: inline-block;
+	align-items: center;
+	margin-left: 25px;
+
 }
 
 body.noMask .eventPanel .button {
@@ -459,9 +475,11 @@ body.noMask .eventPanel .button {
 
 .eventTitle {
 	display: inline-block;
+	color: #000;
 	font-weight: bold;
 	position: absolute;
-	top: -12px;
+	top: -20px;
+	left: 5px;
 }
 
 body.noMask .eventTitle {
@@ -469,11 +487,11 @@ body.noMask .eventTitle {
 }
 
 .eventTitle:after {
-	background-color: white;
+	background-color: transparent;
 	bottom: 32%;
 	content: " ";
 	height: 5px;
-	left: 0;
+	left: 0px;
 	position: absolute;
 	width: 100%;
 	z-index: -1;
@@ -502,8 +520,10 @@ body.noMask #description {
 }
 
 #buttons > .button {
-	margin: 0 5px 5px;
-	margin-right: 15px;
+	/*margin: 0 5px 5px;
+	margin-right: 15px;*/
+	align-items: center;
+
 }
 
 /* Combat! */

@@ -3,9 +3,14 @@
 	display: inline-block;
 }
 
+@font-face {
+    font-family: pressura-mono;
+    src: url(../fonts/GT-Pressura-Mono-Regular.ttf) format('truetype');
+}
+
 #map {
 	position: relative;
-	font-family: "Courier New", Courier, monospace;
+	font-family: 'pressura-mono', "Courier New", Courier, monospace;
 	border: 1px solid black;
 	overflow: hidden;
 	display: inline-block;

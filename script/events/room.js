@@ -439,7 +439,7 @@ Events.Room = [
 						cost: {
 							'money': 100,
 							'clout': 100,
-							'torch': 1
+							'guest list +1': 1
 						},
 						nextScene: {1: 'agree'}
 					},

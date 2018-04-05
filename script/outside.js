@@ -446,8 +446,8 @@ var Outside = {
 
 	checkWorker: function(name) {
 		var jobMap = {
-			'office': ['influencer', 'intern'],
-			'social media': ['marketer'],
+			'office': ['marketer', 'intern'],
+			'social media': ['influencer'],
 			'sales pipeline': ['salesperson'],
 			'iron mine': ['iron miner'],
 			'coal mine': ['coal miner'],

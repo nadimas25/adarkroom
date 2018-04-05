@@ -5,7 +5,7 @@ div#buildBtns {
 }
 
 div#buildBtns:before {
-	content: "build:";
+	content: "set-up:";
 	position: relative;
 	top: -5px;
 }
@@ -29,7 +29,7 @@ div#buyBtns {
 }
 
 div#buyBtns:before {
-	content: "buy:";
+	content: "gain:";
 	position: relative;
 	top: -5px;
 }
@@ -55,9 +55,9 @@ div.storeRow {
 div#stores:before {
 	position: absolute;
 	background: white;
-	content: "stores";
+	content: "resources";
 	left: 8px;
-	top: -13px;	
+	top: -13px;
 }
 
 div#weapons {
@@ -75,5 +75,5 @@ div#weapons:before {
 	background: white;
 	content: "weapons";
 	left: 8px;
-	top: -13px;	
+	top: -13px;
 }

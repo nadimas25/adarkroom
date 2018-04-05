@@ -99,7 +99,7 @@ Events.Setpieces = {
 				buttons: {
 					'enter': {
 						text: _('go inside'),
-						cost: { torch: 1 },
+						cost: { guest list +1: 1 },
 						nextScene: {0.3: 'a1', 0.6: 'a2', 1: 'a3'}
 					},
 					'leave': {
@@ -170,7 +170,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 1
 					},
-					'torch': {
+					'guest list +1': {
 						min: 1,
 						max: 5,
 						chance: 0.5
@@ -212,7 +212,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.8
 					},
-					'torch': {
+					'guest list +1': {
 						min: 1,
 						max: 3,
 						chance: 0.5
@@ -238,14 +238,14 @@ Events.Setpieces = {
 			},
 			'b2': {
 				text: [
-					_('the torch sputters and dies in the damp air'),
+					_('the guest list +1 sputters and dies in the damp air'),
 					_('the darkness is absolute')
 				],
-				notification: _('the torch goes out'),
+				notification: _('the guest list +1 goes out'),
 				buttons: {
 					'continue': {
 						text: _('continue'),
-						cost: {'torch': 1},
+						cost: {'guest list +1': 1},
 						nextScene: { 1: 'c1' }
 					},
 					'leave': {
@@ -548,7 +548,7 @@ Events.Setpieces = {
 					'enter': {
 						text: _('enter'),
 						nextScene: {0.5: 'b1', 1: 'b2'},
-						cost: {torch: 1}
+						cost: {guest list +1: 1}
 					},
 					'leave': {
 						text: _('leave town'),
@@ -605,7 +605,7 @@ Events.Setpieces = {
 					'enter': {
 						text: _('enter'),
 						nextScene: {0.5: 'b5', 1: 'end5'},
-						cost: {torch: 1}
+						cost: {guest list +1: 1}
 					},
 					'leave': {
 						text: _('leave town'),
@@ -623,7 +623,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 1
 					},
-					'torch': {
+					'guest list +1': {
 						min: 1,
 						max: 3,
 						chance: 0.8
@@ -736,7 +736,7 @@ Events.Setpieces = {
 						max: 5,
 						chance: 0.8
 					},
-					'torch': {
+					'guest list +1': {
 						min: 1,
 						max: 3,
 						chance: 0.5
@@ -880,7 +880,7 @@ Events.Setpieces = {
 			'c3': {
 				text: [
 					_('through the large gymnasium doors, footsteps can be heard.'),
-					_('the torchlight casts a flickering glow down the hallway.'),
+					_('the guest list +1light casts a flickering glow down the hallway.'),
 					_('the footsteps stop.')
 				],
 				buttons: {
@@ -1171,7 +1171,7 @@ Events.Setpieces = {
 						max: 10,
 						chance: 1
 					},
-					'torch': {
+					'guest list +1': {
 						min: 1,
 						max: 5,
 						chance: 1
@@ -1311,7 +1311,7 @@ Events.Setpieces = {
 				buttons: {
 					'enter': {
 						text: _('enter'),
-						cost: { 'torch': 1 },
+						cost: { 'guest list +1': 1 },
 						nextScene: {0.5: 'b7', 1: 'b8'}
 					},
 					'leave': {
@@ -1660,7 +1660,7 @@ Events.Setpieces = {
 				buttons: {
 					'enter': {
 						text: _('investigate'),
-						cost: { 'torch': 1 },
+						cost: { 'guest list +1': 1 },
 						nextScene: {0.5: 'd2', 1: 'd3'}
 					},
 					'leave': {
@@ -2377,7 +2377,7 @@ Events.Setpieces = {
 					$SM.set('game.cityCleared', true);
 				},
 				loot: {
-					torch: {
+					guest list +1: {
 						min: 1,
 						max: 5,
 						chance: 0.8
@@ -2769,7 +2769,7 @@ Events.Setpieces = {
 						max: 8,
 						chance: 1
 					},
-					'torch': {
+					'guest list +1': {
 					min: 1,
 					max: 3,
 					chance: 0.5
@@ -3457,7 +3457,7 @@ Events.Setpieces = {
 					'enter': {
 						text: _('go inside'),
 						nextScene: { 1: 'enter' },
-						cost: { 'torch': 1 }
+						cost: { 'guest list +1': 1 }
 					},
 					'leave': {
 						text: _('leave'),
@@ -3490,7 +3490,7 @@ Events.Setpieces = {
 						chance: 0.5
 					}
 				},
-				notification: _('a large creature lunges, muscles rippling in the torchlight'),
+				notification: _('a large creature lunges, muscles rippling in the guest list +1light'),
 				buttons: {
 					'leave': {
 						text: _('leave'),

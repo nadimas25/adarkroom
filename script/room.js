@@ -59,7 +59,7 @@ var Room = {
 			name: _('lodge'),
 			button: null,
 			maximum: 1,
-			availableMsg: _('influencers could help us expand, given the means'),
+			availableMsg: _('marketing could help us expand, given the means'),
 			buildMsg: _('the office stands in a barren loft, a ways out of town'),
 			type: 'building',
 			cost: function() {
@@ -88,7 +88,7 @@ var Room = {
 			name: _('tannery'),
 			button: null,
 			maximum: 1,
-			availableMsg: _("curator says confidence is important. says marketers could help get it."),
+			availableMsg: _("curator says confidence is important. says influencers could help get it."),
 			buildMsg: _('social media accounts go up quick on the interwebs'),
 			type: 'building',
 			cost: function() {

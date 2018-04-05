@@ -1,63 +1,67 @@
 body {
-	background-color: #272823;
-	color: #EEE;
+	background-color: #1f1a28;
+	color: #ffffff;
 }
 
 div.headerButton {
-	border-left: 1px solid #EEE;
+	border-left: 1px solid #FFF;
 }
 
 div#notifyGradient {
 	background-color: #272823;
-	background: -webkit-linear-gradient( rgba(39, 40, 35, 0) 0%, rgba(39, 40, 35, 1) 100% );
-	background: linear-gradient( rgba(39, 40, 35, 0) 0%, rgba(39, 40, 35, 1) 100% );
+	background: -webkit-linear-gradient( rgba(39, 40, 35, 0) 0%, rgba(0, 0, 256, 1) 100% );
+	background: linear-gradient( rgba(39, 40, 35, 0) 0%, rgba(0, 0, 256, 1) 100% );
 	filter: alpha( Opacity=0, FinishOpacity=100, Style=1, StartX=0, StartY=0, FinishX=0, FinishY=500 );
 }
 
 div#saveNotify {
-	background: #272823;
+	background: transparent;
+	color: #0000FF;
 }
 
 .eventPanel:before {
-	background-color: #272823;
+	background-color: transparent;
 }
 
 .eventTitle:after {
-	background-color: #272823;
+	background-color: transparent;
+	color: #FFF;
 }
 
 div.tooltip {
-	background-color: #111;
+	background-color: #FFFBFB;
+	color: #000;
 	border: 1px solid black;
-	box-shadow: -1px 3px 2px #111;
+	box-shadow: 0px 0px 25px #F5F5F5;
+	-webkit-box-shadow: 0px 0px 25px #F5F5F5;
 }
 
 div#population {
-	background-color: #272823;
+	background-color: transparent;
 }
 
 div#village:before {
-	background: #272823;
+	background: transparent;
 }
 
 div#village {
-	border: 1px solid #EEE;
+	border: 1px solid #FFF;
 }
 
 div#stores:before {
-	background: #272823;
+	background: transparent;
 }
 
 div#stores {
-	border: 1px solid #EEE;
+	border: 1px solid #FFF;
 }
 
 div#weapons:before {
-	background: #272823;
+	background: transparent;
 }
 
 div#weapons {
-	border: 1px solid #EEE;
+	border: 1px solid #FFF;
 }
 
 div#bagspace {
@@ -114,14 +118,23 @@ div.supplyItem {
 }
 
 div.button {
-	border: 1px solid #EEE;
+	background-color: #1f1a28;
+	border: 1px solid #FFF;
 }
 
 div.button.disabled, div.button.disabled:hover {
-	border-color: #444;
-	color: #444;
+	border-color: #FFF;
+	color: #0000FF;
 }
 
+div.button div.cooldown {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+	height: 100%;
+	background-color: #FFFFFF;
+}
 
 .upBtn:after, .upManyBtn:after {
 	border-color: transparent transparent #272823;
@@ -147,21 +160,52 @@ div.button.disabled, div.button.disabled:hover {
 	border-color: #555 transparent transparent;
 }
 
+.eventPanel {
+	background: none repeat scroll 0 0 #1f1a28;
+	border: 2px solid transparent;
+	left: 250px;
+	padding: 20px;
+	position: absolute;
+	top: 90px;
+	width: 335px;
+	z-index: 20;
+}
+
+.eventPanel:after {
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	width: 100%;
+	height: 100%;
+	content: " ";
+	border: 0px;
+	box-shadow: 0px 0px 25px 0px rgba(256,256,256,100);
+	z-index: -2;
+}
+.eventTitle {
+	display: inline-block;
+	color: #FFF;
+	font-weight: bold;
+	position: absolute;
+	top: -20px;
+	left: 5px;
+}
+
 body.noMask .eventTitle {
-	background-color: #EEE;
-	color: #272823;
+	background-color: #FFF;
+	color: #FFF;
 }
 
 body.noMask .eventTitle:after {
-	background-color: #EEE;
+	background-color: #FFF;
 }
 
 body.noMask .eventPanel {
-	background-color: #EEE;
+	background-color: #FFF;
 }
 
 body.noMask #description {
-	color: #272823;
+	color: #000;
 }
 
 body.noMask #buttons > .button {
@@ -169,6 +213,11 @@ body.noMask #buttons > .button {
 	color: #272823;
 }
 
+#description {
+	position: relative;
+	min-height: 100px;
+	color: #FFF;
+}
 #stars > div, #starsBack > div {
 	color: black;
 }
