@@ -40,7 +40,7 @@ var Path = {
 		// Add the embark button
 		new Button.Button({
 			id: 'embarkButton',
-			text: _("depart"),
+			text: _("embark"),
 			click: Path.embark,
 			width: '80px',
 			cooldown: World.DEATH_COOLDOWN
@@ -162,7 +162,7 @@ var Path = {
 		var total = 0;
 		// Add the non-craftables to the craftables
 		var carryable = $.extend({
-			'cured meat': { type: 'tool' },
+			'money': { type: 'tool' },
 			'bullets': { type: 'tool' },
 			'grenade': {type: 'weapon' },
 			'bolas': {type: 'weapon' },
@@ -229,7 +229,7 @@ var Path = {
 		// Update bagspace
 		$('#bagspace').text(_('free {0}/{1}', Math.floor(Path.getCapacity() - total) , Path.getCapacity()));
 
-		if(Path.outfit['cured meat'] > 0) {
+		if(Path.outfit['money'] > 0) {
 			Button.setDisabled($('#embarkButton'), false);
 		} else {
 			Button.setDisabled($('#embarkButton'), true);
