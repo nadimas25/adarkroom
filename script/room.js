@@ -157,7 +157,7 @@ var Room = {
 				};
 			}
 		},
-		'guest list +1': {
+		'torch': {
 			name: _('torch'),
 			button: null,
 			type: 'tool',
@@ -905,10 +905,10 @@ var Room = {
 
 	build: function(buildBtn) {
 		var thing = $(buildBtn).attr('buildThing');
-		if($SM.get('game.temperature.value') <= Room.TempEnum.Cold.value) {
-			Notifications.notify(Room, _("builder just shivers"));
-			return false;
-		}
+		// if($SM.get('game.temperature.value') <= Room.TempEnum.Cold.value) {
+		// 	Notifications.notify(Room, _("builder just shivers"));
+		// 	return false;
+		// }
 		var craftable = Room.Craftables[thing];
 
 		var numThings = 0;

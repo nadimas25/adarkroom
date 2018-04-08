@@ -16,7 +16,7 @@ Studio(function(){
 		_('coal'),
 		_('sulphur'),
 		_('energy cell'),
-		_('guest list +1'),
+		_('torch'),
 		_('medicine'),
 		_('influencer'),
 		_('inter'),
