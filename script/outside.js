@@ -17,8 +17,8 @@ var Outside = {
 				'artwork': 1
 			}
 		},
-		'influencer': {
-			name: _('influencer'),
+		'marketer': {
+			name: _('marketer'),
 			delay: 10,
 			stores: {
 				'clout': 0.5,
@@ -33,8 +33,8 @@ var Outside = {
 				'samples': 1
 			}
 		},
-		'marketer': {
-			name: _('marketer'),
+		'influencer': {
+			name: _('influencer'),
 			delay: 10,
 			stores: {
 				'clout': -5,
